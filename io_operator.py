@@ -63,6 +63,12 @@ def read_model(model, instance_name):
 '''
 
 
+def solution_file_name_process(instance_name, solution_type, **exp_set):
+    if solution_type == 'DE':
+        solutions_dir = FILE_DIR['de_solutions']
+        file_name = '{}'.format(instance_name)
+
+
 def write_gurobi_sol(model, instance_name):
     if int(model.getAttr("Status")) not in GUROBI_INFEASIBLE_CODE:
         file = solutions_dir + instance_name + ".sol"

@@ -1,4 +1,22 @@
 # coding:utf-8
+import socket
+
+
+SERVERS = [
+    'ali-8c16g',
+    'us-compute',
+    'VM-12-13-centos',
+    'ecs-s2-large-2-linux-20190730174954'
+]
+SEND_NOTIFICATION = False
+SERVER_NAME = socket.gethostname()
+if SERVER_NAME in SERVERS:
+    SEND_NOTIFICATION = True
+
+COPY_TO_CLIPBOARD = False
+if SERVER_NAME in ['guoph-MBP.lan']:
+    COPY_TO_CLIPBOARD = True
+
 
 # saving global variables here
 
@@ -41,9 +59,13 @@ GUROBI_PARAMETERS = {
     # 1 uses a linearized, outer-approximation approach, 0 solves continuous QCP relaxations at each node.
 }
 
+PARAMETERS = {}
+
 FOLDER = ''
 FILE_DIRECTORY = {
     'instances': './instances/',
     'solutions': './solutions/',
 }
 FILE_DIRECTORY = {key: FOLDER + FILE_DIRECTORY[key] for key in FILE_DIRECTORY}
+
+EXP_PARAMETERS = {}

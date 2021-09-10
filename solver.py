@@ -17,7 +17,7 @@ class Solver(Instance):
     def __init__(self, meta_data):
 
         Instance.__init__(self, meta_data)
-        self.instance_name = meta_data['']
+        self.instance_name = meta_data
 
     def set_GUROBI_PARAMETERS(self, model, instance_name):
         for key in GUROBI_PARAMETERS:
@@ -38,7 +38,7 @@ class Solver(Instance):
         #     define variable tuples      #
         # # # # # # # # # # # # # # # # # #
         '''
-        vars_tup = tupledict([(i, j), None] for (i, j) in product(range(10), range(10)))
+        vars_tup = tupledict([(i, j), -1] for (i, j) in product(range(10), range(10)))
 
         '''
         # # # # # # # # # # # # # # # # # #
